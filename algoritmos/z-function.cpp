@@ -11,3 +11,16 @@ vector<int> z_function(string s) {
     }
     return z;
 }
+
+int main() {
+    // Otimização de input
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
+    string s;
+    cin >> s;
+
+    vector<int> z = z_function(s);
+
+    return 0;
+}
