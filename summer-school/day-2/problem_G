@@ -1,0 +1,32 @@
+#include <iostream>
+#include <cstdio>
+#include <queue>
+using namespace std;
+
+int main() {
+  long long int n, m, a, b, soma = 0, contador = 0;
+  cin >> n >> m;
+  priority_queue<int> pq;
+
+  for (int i =0; i < n; i++){
+    cin >> a >> b;
+    soma += a;
+    pq.push(a - b);
+  }
+  while ((soma > m) && contador < n)
+  {
+      soma -= pq.top();
+      pq.pop();
+      contador++;
+        
+  }
+  if (soma > m)
+  {
+    cout << -1 << endl;
+  }
+  else{
+      cout << contador << endl;
+  }
+  
+  return 0;
+}
