@@ -14,7 +14,10 @@ int main() {
         double b1, p1, b2, p2;
         cin >> b1 >> p1 >> b2 >> p2;
 
-        if((b1 > b2 && p1 >= p2) || (b1 >= b2 && p1 > p2)) {
+        if((b1 == 0 && b2 == 0) || (p1 == 0 && p2 == 0) || (b1 == 1 && b2 == 1)) {
+            cout << "Lazy" << endl;
+        }
+        else if((b1 > b2 && p1 >= p2) || (b1 >= b2 && p1 > p2)) {
             cout << "HaHa" << endl;
         } else if ((b1 < b2 && p1 <= p2) || (b1 <= b2 && p1 < p2)) {
             cout << "Congrats" << endl;
