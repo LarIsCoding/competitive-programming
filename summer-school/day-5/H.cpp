@@ -2,6 +2,11 @@
 
 using namespace std;
 
+bool canGoToPos(char *mapa[], int i, int j, int n, int m) {
+    if(i < 0 || i >= n || j < 0 || j >= m || mapa[i][j] == 'M' || mapa[i][j] == 'P') return false;
+    return true;
+}
+
 void printaMatrix(char *mapa[], int n, int m) {
     for(int i = 0; i < n; i++) {
         for(int j = 0; j < m; j++) {
@@ -46,10 +51,18 @@ int findMinPath(char *mapa[], pair<int, int> ini, pair<int, int> fim, int n, int
         if(mapa[i][j] == 'P') continue;
         mapa[i][j] = 'P';
 
-        q.push(make_pair(make_pair(i - 1, j), time + 1));
-        q.push(make_pair(make_pair(i + 1, j), time + 1));
-        q.push(make_pair(make_pair(i, j + 1), time + 1));
-        q.push(make_pair(make_pair(i, j - 1), time + 1));
+        if(canGoToPos(mapa, i - 1, j, n, m)) {
+            q.push(make_pair(make_pair(i - 1, j), time + 1));
+        }
+        if(canGoToPos(mapa, i + 1, j, n, m)) {
+            q.push(make_pair(make_pair(i + 1, j), time + 1));
+        }
+        if(canGoToPos(mapa, i, j - 1, n, m)) {
+            q.push(make_pair(make_pair(i, j - 1), time + 1));
+        }
+        if(canGoToPos(mapa, i, j + 1, n, m)) {
+            q.push(make_pair(make_pair(i, j + 1), time + 1));
+        }
     }
 
     return -1;
