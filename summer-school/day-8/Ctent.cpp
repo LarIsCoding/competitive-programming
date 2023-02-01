@@ -3,7 +3,7 @@
 using namespace std;
 #define MAX 10000
 #include <cstring>
- 
+
 void computeLPSArray(char* pat, int M, int* lps);
  
 // Prints occurrences of txt[] in pat[]
@@ -80,20 +80,25 @@ void computeLPSArray(char* pat, int M, int* lps)
     }
 }
  
-// Driver code
+
 int main()
-{
-    int n;
-    for (int i = 0; i < cin >> n; i++){
-    char txt[MAX];
-    char pat[MAX];
-    cin.getline(txt, MAX);
-    cin.getline(pat, MAX);
-    int tam_txt, tam_pat;
-    static int contador = 0;
-    tam_txt = strlen(txt);
-    tam_pat = strlen(pat);
-    KMPSearch(pat, txt, &contador);
-    cout << txt << tam_txt << endl; }
-    return 0;
+{   int n;
+    cin >> n;
+    cin.ignore();
+    for (int i = 0; i < n; i++)
+    {
+        char txt[MAX];
+        char pat[MAX];
+        cin.getline(txt, MAX);
+        cin.getline(pat, MAX);
+        int tam_txt, tam_pat;
+        int contador = 0;
+        tam_txt = strlen(txt);
+        tam_pat = strlen(pat);
+        KMPSearch(pat, txt, &contador);
+        cout << tam_txt - tam_pat * contador << endl;
+        
+    }
+    
+    
 }
