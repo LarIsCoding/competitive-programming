@@ -30,7 +30,7 @@ int main() {
             }
         }
 
-        bool fail = sentence.empty();
+        bool fail = false;
 
         while(!sentence.empty()) {
             char front = sentence.front();
@@ -46,7 +46,7 @@ int main() {
         }
 
         if(!fail) {
-            cout << "You won’t be eaten!\n";
+            cout << "You won't be eaten!\n";
         } else {
             cout << "Uh oh..\n";
         }
