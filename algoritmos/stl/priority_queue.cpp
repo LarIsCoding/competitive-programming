@@ -9,6 +9,7 @@ int main() {
     cin.tie(0);
 
     priority_queue<int> pq;
+    priority_queue<int, vector<int>, greater<int> > minPq;
 
     pq.push(100);
     pq.push(34);
