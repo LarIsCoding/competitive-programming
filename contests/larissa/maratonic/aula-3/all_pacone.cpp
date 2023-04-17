@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 
 using namespace std;
 
@@ -25,6 +25,8 @@ int busca(int l, int r, int n, int m) {
     }
 
     int meio = (l + r) / 2;
+
+    cout << l << ' ' << meio << ' ' << r << endl;
 
     if(testa(meio, n, m)) {
         return busca(meio + 1, r, n, m);
