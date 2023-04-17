@@ -5,6 +5,7 @@ using namespace std;
 
 typedef vector<int> vi;
 
+// Min
 class SegmentTree {
 
     private:
@@ -46,12 +47,34 @@ class SegmentTree {
         return (A[p1] <= A[p2]) ? p1 : p2;
     }
 
+    void update(int p, int L, int R, int i, int v) {
+        if(i > R || i < L) return;
+
+        if(i == L && i == R) {
+            st[p] = L;
+            A[L] = v;
+            return;
+        }
+
+        update(left(p), L, (L + R)/2, i, v);
+        update(right(p), (L + R)/2 + 1, R, i, v);
+
+        int p1 = st[left(p)];
+        int p2 = st[right(p)];
+
+        st[p] = (A[p1] <= A[p2]) ? p1 : p2;
+    }
+
     public:
     SegmentTree(const vi &_A) {
         A = _A;
         n = (int)A.size();
         st.assign(4 * n, 0);
         build(1, 0, n - 1);
+    }
+
+    void update(int i, int v) {
+        update(1, 0, n - 1, i, v);
     }
 
     int rmq(int i, int j) {
