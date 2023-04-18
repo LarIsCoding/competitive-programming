@@ -3,6 +3,7 @@
 using namespace std;
 
 typedef vector<int> vi;
+typedef long long int ll;
 
 int main() {
     // Otimização de input

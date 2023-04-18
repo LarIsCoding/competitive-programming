@@ -14,6 +14,7 @@ int main() {
     for(set<int>::iterator it = s.lower_bound(77); it != s.end(); it++)
         cout << *it << endl;
 
+    int d = distance(s.begin(), s.end());
     s.clear();
 
     return 0;

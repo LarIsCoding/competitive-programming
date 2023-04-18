@@ -33,5 +33,7 @@ int main() {
     next_permutation(arr, arr + 5); // 2, 4, 7, 10, 15 −> 2, 4, 7, 15, 10
     next_permutation(arr, arr + 5); // 2, 4, 7, 15, 10 −> 2, 4, 10, 7, 15
 
+    memset(arr , 0, sizeof(arr));
+
     return 0;
 }
