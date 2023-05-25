@@ -8,3 +8,7 @@ ll binpow(ll a, ll b, ll mod) {
     }
     return res;
 }
+
+ll inv(ll x) {
+    return binpow(x, mod - 2, mod);
+}
