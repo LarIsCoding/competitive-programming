@@ -1,5 +1,4 @@
 #include <vector>
-#include <iostream>
 
 using namespace std;
 
@@ -57,9 +56,30 @@ class UnionFind {
     }
 };
 
-int main() {
-    UnionFind uf(5);
-    uf.unionSet(0, 1);
-    cout << uf.numDisjointSets() << endl;
-    return 0;
+struct Edge {
+    int u, v, weight;
+    bool operator<(Edge const& other) {
+        return weight < other.weight;
+    }
+};
+
+bool cmp(const Edge &a, const Edge &b){
+    return a.weight < b.weight;
+}
+
+int n;
+vector<Edge> edges;
+UnionFind uf(n);
+
+sort(edges.begin(), edges.end(), cmp);
+
+int cost = 0;
+vector<Edge> result;
+
+for(Edge e : edges) {
+    if(!uf.isSameSet(e.u, e.v)) {
+        cost += e.weight;
+        result.push_back(e);
+        uf.unionSet(e.u, e.v);
+    }
 }
