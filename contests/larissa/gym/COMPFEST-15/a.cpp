@@ -20,12 +20,16 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int t;
-    cin >> t;
+    int n;
+    cin >> n;
 
-    while(t--) {
-        // Implementation
+    int best=inf;
+    for(int i=0;i<n;i++) {
+        int aux;cin>>aux;
+        best=min(best,abs(aux));
     }
+
+    cout<<best<<endl;
 
     return 0;
 }
