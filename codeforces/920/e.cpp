@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+typedef pair<int,int> ii;
+typedef vector<int> vi;
+typedef long long int ll;
+
+#define mp(i, j) make_pair(i, j)
+#define f first
+#define s second
+
+const int inf = (int)1e9;
+const ll mod = (ll)1e9 + 7;
+const ll linf = (ll)1e17;
+#define EPS 1e-9
+
+int main() {
+    // Otimização de input
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
+    int t;
+    cin >> t;
+
+    while(t--) {
+        int h,w,xa,ya,xb,yb;
+        cin>>h>>w>>xa>>ya>>xb>>yb;
+
+        if(xa>=xb) cout<<"Draw\n";
+        else if((xb-xa)%2) {
+            if(abs(ya-yb)<=1) cout<<"Alice\n";
+            else if((yb>ya)&&((w-yb)+(yb-ya-2)<((xb-xa)/2))) cout<<"Alice\n";
+            else if((yb<ya)&&((yb-1)+(ya-yb-2)<((xb-xa)/2))) cout<<"Alice\n";
+            else cout<<"Draw\n";
+        } else {
+            if(ya==yb) cout<<"Bob\n";
+            else if((ya>yb)&&((w-ya)+(ya-yb-1)<((xb-xa)/2))) cout<<"Bob\n";
+            else if((ya<yb)&&((ya-1)+(yb-ya-1)<((xb-xa)/2))) cout<<"Bob\n";
+            else cout<<"Draw\n";
+        }
+    }
+
+    return 0;
+}
