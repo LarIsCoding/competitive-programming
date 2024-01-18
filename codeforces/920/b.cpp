@@ -24,7 +24,15 @@ int main() {
     cin >> t;
 
     while(t--) {
-        // Implementation
+        int n;cin>>n;
+        string s,f;cin>>s>>f;
+
+        int change0=0,change1=0;
+        for(int i=0;i<n;i++) {
+            if(s[i]=='0'&&f[i]=='1') change1++;
+            if(s[i]=='1'&&f[i]=='0') change0++;
+        }
+        cout<<max(change0,change1)<<endl;
     }
 
     return 0;

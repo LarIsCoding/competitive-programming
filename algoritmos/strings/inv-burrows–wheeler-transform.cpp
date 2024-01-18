@@ -1,8 +1,11 @@
+<<<<<<< HEAD
+=======
 // Invert Burrows Wheeler
 //
 // BWT pega uma string s e cria uma string t onde ti é o último caracter da i-ésima menor rotação da string s.
 // InvertBWT pega a string t e transforma em s
 
+>>>>>>> 8e30ac3c75e20c15f70e0fb4d9134f0b564b3763
 #include <bits/stdc++.h>
 
 using namespace std;

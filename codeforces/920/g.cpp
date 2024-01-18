@@ -24,7 +24,13 @@ int main() {
     cin >> t;
 
     while(t--) {
-        // Implementation
+        int n,m,k;cin>>n>>m>>k;
+        char grid[n][m];
+        for(int i=0;i<n;i++) {
+            for(int j=0;j<m;j++) {
+                cin>>grid[i][j];
+            }
+        }
     }
 
     return 0;
