@@ -20,6 +20,10 @@ template <typename H, typename ...T>
 void dbg_out(H h, T... t) { cerr << ' ' << h; dbg_out(t...); }
 #define dbg(...) {cerr << #__VA_ARGS__ << ':' ; dbg_out(__VA_ARGS__); } 
 
+void solve() {
+    
+}
+
 int main() {
     // Otimização de input
     ios::sync_with_stdio(false);
@@ -28,8 +32,8 @@ int main() {
     int t;
     cin >> t;
 
-    while(t--) {
-        // Implementation
+    for(int i=0;i<t;i++) {
+        solve();
     }
 
     return 0;
