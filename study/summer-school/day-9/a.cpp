@@ -21,7 +21,13 @@ void dbg_out(H h, T... t) { cerr << ' ' << h; dbg_out(t...); }
 #define dbg(...) {cerr << #__VA_ARGS__ << ':' ; dbg_out(__VA_ARGS__); } 
 
 void solve() {
-    
+    int a,b,c;
+    while(cin>>a>>b>>c) {
+        if(a==b&&a!=c) cout<<"C\n";
+        else if(a==c&&a!=b) cout<<"B\n";
+        else if(b==c&&a!=b) cout<<"A\n";
+        else cout<<"*\n";
+    }
 }
 
 int main() {
@@ -29,8 +35,8 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int t;
-    cin >> t;
+    int t=1;
+    //cin >> t;
 
     for(int i=0;i<t;i++) {
         solve();

@@ -20,37 +20,42 @@ template <typename H, typename ...T>
 void dbg_out(H h, T... t) { cerr << ' ' << h; dbg_out(t...); }
 #define dbg(...) {cerr << #__VA_ARGS__ << ':' ; dbg_out(__VA_ARGS__); } 
 
-vector<pair<int,bool> > events;
-
 void solve() {
-    int n,k;cin>>n>>k;
-
+    int n,m;cin>>n>>m;
+    set<pair<ii,int> > s;
     for(int i=0;i<n;i++) {
         int l,r;cin>>l>>r;
-        events.push_back(mp(l,false));
-        events.push_back(mp(r,true));
+        s.insert(mp(mp(l,r),i+1));
     }
 
-    sort(events.begin(),events.end());
+    int last=0;
+    vector<int> ans;
+    set<ii> opt;
 
-    int acc=0;
-    vector<ii> ans;
-    int l=0;
-
-    for(auto i:events) {
-        if(i.second==false) {
-            acc++;
-            if(acc==k) l=i.first;
-        } else {
-            if(acc==k) ans.push_back(mp(l,i.first));
-            acc--;
+    while(!s.empty() && last<m) {
+        while(!s.empty()&&s.begin()->first.first<=last+1) {
+            opt.insert(mp(s.begin()->first.second,s.begin()->second));
+            s.erase(s.begin());
         }
+        if(opt.empty()) {
+            cout<<"NO\n";
+            return;
+        }
+        last=prev(opt.end())->first;
+        ans.push_back(prev(opt.end())->second);
+        opt.clear();
+    }
+    if(last<m) {
+        cout<<"NO\n";
+        return;
     }
 
+    cout<<"YES\n";
     cout<<ans.size()<<endl;
     for(auto i:ans) {
-        cout<<i.first<<' '<<i.second<<endl;
+        cout<<i<<' ';
     }
+    cout<<endl;
 }
 
 int main() {
@@ -59,7 +64,7 @@ int main() {
     cin.tie(0);
 
     int t=1;
-    //cin >> t;
+    // cin >> t;
 
     while(t--) {
         solve();
